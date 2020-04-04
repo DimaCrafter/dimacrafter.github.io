@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Введение | dc-api-core</title>
+    <meta name="description" content="Простое ядро API для Ваших проектов">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/dc-api-core/assets/css/0.styles.1ba2303a.css" as="style"><link rel="preload" href="/dc-api-core/assets/js/app.0cce4420.js" as="script"><link rel="preload" href="/dc-api-core/assets/js/2.323e4625.js" as="script"><link rel="preload" href="/dc-api-core/assets/js/12.303025c4.js" as="script"><link rel="preload" href="/dc-api-core/assets/js/3.dfe0863a.js" as="script"><link rel="preload" href="/dc-api-core/assets/js/8.20288328.js" as="script"><link rel="preload" href="/dc-api-core/assets/js/4.fed08a28.js" as="script"><link rel="preload" href="/dc-api-core/assets/js/5.9f432b31.js" as="script"><link rel="prefetch" href="/dc-api-core/assets/js/10.bd88f491.js"><link rel="prefetch" href="/dc-api-core/assets/js/11.061b02f1.js"><link rel="prefetch" href="/dc-api-core/assets/js/13.8aa19c9a.js"><link rel="prefetch" href="/dc-api-core/assets/js/14.65d39448.js"><link rel="prefetch" href="/dc-api-core/assets/js/15.3adf5045.js"><link rel="prefetch" href="/dc-api-core/assets/js/16.f0c4416b.js"><link rel="prefetch" href="/dc-api-core/assets/js/6.11d4236f.js"><link rel="prefetch" href="/dc-api-core/assets/js/7.7e18a58a.js"><link rel="prefetch" href="/dc-api-core/assets/js/9.620afec4.js">
+    <link rel="stylesheet" href="/dc-api-core/assets/css/0.styles.1ba2303a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dc-api-core/ru/" class="home-link router-link-exact-active router-link-active"><img src="/dc-api-core/img/logo.svg" alt="dc-api-core" class="logo"> <span class="site-name can-hide">dc-api-core</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/dc-api-core/ru/cli/" class="nav-link">
+  CLI
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Язык</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dc-api-core/en/" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/dc-api-core/ru/" class="nav-link router-link-exact-active router-link-active">
+  Русский
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/dc-api-core/ru/cli/" class="nav-link">
+  CLI
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Язык</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dc-api-core/en/" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/dc-api-core/ru/" class="nav-link router-link-exact-active router-link-active">
+  Русский
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Введение</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dc-api-core/ru/#обычная-установка" class="sidebar-link">Обычная установка</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/dc-api-core/ru/#установка-через-cli" class="sidebar-link">Установка через CLI</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/dc-api-core/ru/#структура" class="sidebar-link">Структура</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="введение"><a href="#введение" class="header-anchor">#</a> Введение</h1> <h2 id="обычная-установка"><a href="#обычная-установка" class="header-anchor">#</a> Обычная установка</h2> <p><strong>0)</strong> Сначала сгенерируйте <code>package.json</code>, прописав <code>npm init</code> или <code>yarn init</code>.</p> <p><strong>1)</strong> Далее установите пакет, используя <code>npm i dc-api-core --save</code>
+или <code>yarn add dc-api-core</code>.
+Во время установки будет предложено глобально установить CLI, если отсутствует
+и настроить проект в текущей директории (подробнее в <a href="#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-cli">Установке через CLI</a>).</p> <p><strong>2.1)</strong> Если во время установки Вы настроили проект при помощи CLI,
+то Вы уже можете запустить сервер;</p> <p><strong>2.2)</strong> Иначе Вам нужно вручную выполнить действия ниже.</p> <p><strong>3)</strong> Заполните <code>scripts</code> в <code>package.json</code>:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dc-api-core&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dc-api-core --dev&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>4)</strong> Создайте необходимые директории и файлы, указанные в разделе <a href="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0">Структура</a>.</p> <h2 id="установка-через-cli"><a href="#установка-через-cli" class="header-anchor">#</a> Установка через CLI</h2> <p>Если у Вас есть глобально установленный CLI, то Вы можете перейти в директорию,
+в которой будет настроен сервер, и выполнить <code>dc-api-cli init</code> или
+<code>dc-api-cli init &lt;path&gt;</code> (где <code>&lt;path&gt;</code> - путь до нужной директории).</p> <p>Пример хода установки:</p> <div class="terminal"><span style="color: #50e3c2">$ dc-api-cli init</span>
+Рабочая директория: /path/to/backend
+Введите порт: <span style="color: #0fb1c5">8080</span>
+
+Плагины:
+<span style="color: #0fb1c5">(используйте стрелочки для перемещения, пробел для выбора и enter для подтверждения)</span>
+<span style="color: #0ac484">x dc-api-mongo</span>
+
+Выберите провайдера сессии:
+<span style="color: #0fb1c5">(используйте стрелочки для перемещения и enter для подтверждения)</span>
+  Без сессии
+<span style="color: #0ac484">➔ dc-api-mongo</span>
+</div> <h2 id="структура"><a href="#структура" class="header-anchor">#</a> Структура</h2> <div class="tree"><i style="height:174px;"></i> <div class="entries"><div class="line"><img src="/dc-api-core/icons/folder-api.svg" class="icon">
+			
+		</div> <div class="tree-entry"><i style="height:12px;"></i> <div class="line"><img src="/dc-api-core/icons/folder-controller.svg" class="icon">
+		controllers
+	</div> <div class="childs"><div class="tree-entry"><!----> <div class="line"><img src="/dc-api-core/icons/javascript.svg" class="icon">
+		&lt;ControllerName&gt;.js
+	</div> <!----></div></div></div><div class="tree-entry"><i style="height:12px;"></i> <div class="line"><img src="/dc-api-core/icons/folder-database.svg" class="icon">
+		models
+	</div> <div class="childs"><div class="tree-entry"><i style="height:12px;"></i> <div class="line"><img src="/dc-api-core/icons/database.svg" class="icon">
+		&lt;driver-name&gt;
+	</div> <div class="childs"><div class="tree-entry"><!----> <div class="line"><img src="/dc-api-core/icons/json.svg" class="icon">
+		&lt;ModelName&gt;.js
+	</div> <!----></div></div></div></div></div><div class="tree-entry"><!----> <div class="line"><img src="/dc-api-core/icons/settings.svg" class="icon">
+		config.json
+	</div> <!----></div><div class="tree-entry"><!----> <div class="line"><img src="/dc-api-core/icons/javascript.svg" class="icon">
+		startup.js
+	</div> <!----></div></div> <div class="description"><div class="item">Директория, содержащая контролеры <!----></div><div class="item">Контроллер API для обработки запросов <!----></div><div class="item">Содержит модели данных для работы с БД <span class="badge tip" style="vertical-align:top;" data-v-f879801c>Опционально</span></div><div class="item">Идентификатор драйвера БД <!----></div><div class="item">Модель базы данных <!----></div><div class="item">Конфигурационный файл <!----></div><div class="item">Скрипт, выполняемый до запуска API сервера <span class="badge tip" style="vertical-align:top;" data-v-f879801c>Опционально</span></div></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/dc-api-core/assets/js/app.0cce4420.js" defer></script><script src="/dc-api-core/assets/js/2.323e4625.js" defer></script><script src="/dc-api-core/assets/js/12.303025c4.js" defer></script><script src="/dc-api-core/assets/js/3.dfe0863a.js" defer></script><script src="/dc-api-core/assets/js/8.20288328.js" defer></script><script src="/dc-api-core/assets/js/4.fed08a28.js" defer></script><script src="/dc-api-core/assets/js/5.9f432b31.js" defer></script>
+  </body>
+</html>

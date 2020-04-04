@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+	<defs>
+		<linearGradient id="fg-gradient" gradientUnits="userSpaceOnUse" x1="2" y1="0" x2="12" y2="14">
+			<stop offset="0" stop-color="#A4EE98" />
+			<stop offset="1" stop-color="#3FA986" />
+		</linearGradient>
+		<linearGradient id="bg-gradient" gradientUnits="userSpaceOnUse" x1="14" y1="2" x2="4" y2="16">
+			<stop offset="0" stop-color="#6B7495" />
+			<stop offset="1" stop-color="#2C324A" />
+		</linearGradient>
+	</defs>
+	<path fill="url(#bg-gradient)" d="M12.5,16h-8C3.7,16,3,15.3,3,14.5v-12C3,1.7,3.7,1,4.5,1h8C13.3,1,14,1.7,14,2.5v12C14,15.3,13.3,16,12.5,16z" />
+	<path fill="url(#fg-gradient)" d="M11.5,15h-8C2.7,15,2,14.3,2,13.5v-12C2,0.7,2.7,0,3.5,0h8C12.3,0,13,0.7,13,1.5v12C13,14.3,12.3,15,11.5,15z" />
+	<g fill="none" stroke="#fff" stroke-width="0.75" stroke-linecap="round">
+		<circle cx="7.5" cy="3.7" r="1.5"/>
+		<line x1="6.4" y1="4.8" x2="5.7" y2="5.6" />
+		<line x1="9.3" y1="1.9" x2="8.6" y2="2.6" />
+		<line x1="6.4" y1="2.7" x2="5.7" y2="1.9" />
+		<line x1="9.3" y1="5.6" x2="8.6" y2="4.8" />
+		<line x1="7.5" y1="5.2" x2="7.5" y2="6.2" />
+		<line x1="7.5" y1="1.3" x2="7.5" y2="2.2" />
+		<line x1="6"   y1="3.7" x2="5"   y2="3.7" />
+		<line x1="10"  y1="3.7" x2="9"   y2="3.7" />
+		<g stroke-width="1" opacity="0.75">
+			<line x1="5" y1="13.2" x2="10" y2="13.2" />
+			<line x1="4" y1="9.2"  x2="11" y2="9.2"  />
+			<line x1="6" y1="11.2" x2="9"  y2="11.2" />
+		</g>
+	</g>
+</svg>

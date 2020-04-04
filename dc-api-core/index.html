@@ -1,0 +1,15 @@
+<script>
+const lang = window.navigator.userLanguage || window.navigator.language;
+const avail = { en: 'en-US', ru: 'ru-RU' };
+const locales = Object.keys(avail);
+let path;
+locales.find(locale => {
+	if (avail[locale] == lang) {
+		path = '/' + locale;
+		return true;
+	}
+});
+
+if (!path) path = '/' + locales[0];
+window.location.href += path;
+</script>
