@@ -23,6 +23,16 @@ export default {
 </script>
 
 <style>
+::selection {
+    background: rgba(0, 161, 255, 0.15);
+}
+
+#app div[class*="language-"] ::selection,
+.terminal::selection, .terminal ::selection,
+.tree ::selection {
+    background: rgba(180, 220, 250, 0.125);
+}
+
 .terminal {
     position: relative;
     background-color: #282c34;
@@ -43,8 +53,33 @@ export default {
     color: rgba(255,255,255,0.4);
 }
 
-.theme-default-content code {
+.theme-default-content :not(pre) > code {
     white-space: nowrap;
+}
+
+#app .token.string {
+    color: #98c379;
+}
+
+#app .token.property {
+    color: #e06c75;
+}
+
+#app .token.punctuation, #app .token.operator {
+    color: #abb2bf;
+}
+
+#app .token.number {
+    color: #d19a66;
+}
+
+#app .token.comment {
+    color: #5c6370;
+    font-style: italic;
+}
+
+#app div[class*="language-"] {
+    background-color: #282c34;
 }
 
 code[class*="language-"], pre[class*="language-"], .terminal {

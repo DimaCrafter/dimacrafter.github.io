@@ -1,6 +1,9 @@
 module.exports = {
 	base: '/dc-api-core/',
 	dest: '../dc-api-core',
+	head: [
+		['link', { rel: 'shortcut icon', href: '/favicon.ico' }]
+	],
 	themeConfig: {
 		logo: '/img/logo.svg',
 		locales: {
@@ -8,14 +11,17 @@ module.exports = {
 				selectText: 'Languages',
 				label: 'English',
 				nav: [
-					{ text: 'CLI', link: '/ru/cli/' }
-				]
+					{ text: 'CLI', link: '/en/cli/' },
+					{ text: 'Client', link: '/en/client/' }
+				],
+				sidebar: 'auto'
 			},
 			'/ru/': {
 				selectText: 'Язык',
 				label: 'Русский',
 				nav: [
-					{ text: 'CLI', link: '/ru/cli/' }
+					{ text: 'CLI', link: '/ru/cli/' },
+					{ text: 'Клиент', link: '/ru/client/' }
 				],
 				sidebar: 'auto'
 				// sidebar: [
