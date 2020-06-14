@@ -4,5 +4,8 @@
 	"scripts": {
 		"dev": "vuepress dev",
 		"build": "vuepress build ."
+	},
+	"dependencies": {
+		"moment": "^2.26.0"
 	}
 }

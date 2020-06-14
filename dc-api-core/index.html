@@ -5,11 +5,12 @@ const locales = Object.keys(avail);
 let path;
 locales.find(locale => {
 	if (avail[locale] == lang) {
-		path = '/' + locale;
+		path = locale;
 		return true;
 	}
 });
 
-if (!path) path = '/' + locales[0];
+if (!path) path = locales[0];
+if (!window.location.href.endsWith('/')) path = '/' + path;
 window.location.href += path;
 </script>

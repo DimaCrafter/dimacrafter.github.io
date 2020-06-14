@@ -1,5 +1,4 @@
 ---
-sidebar: auto
 structure: {
     icon: 'folder-api',
     childs: [

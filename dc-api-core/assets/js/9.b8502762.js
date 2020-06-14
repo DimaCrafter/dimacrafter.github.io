@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{258:function(s,t,n){"use strict";n.r(t);var e={props:{name:String}},i=n(29),a=Object(i.a)(e,(function(){var s=this.$createElement;return(this._self._c||s)("img",{staticClass:"icon",attrs:{src:this.$withBase("/icons/"+this.name+".svg")}})}),[],!1,null,null,null);t.default=a.exports}}]);

@@ -1,5 +1,4 @@
 ---
-sidebar: auto
 structure: {
     icon: 'folder-api',
     childs: [
@@ -103,7 +102,7 @@ structure: {
 
 ## Структура
 
-<Tree :data="$page.frontmatter.structure" />
+<Tree :data="$frontmatter.structure" />
 
 ## Конфигурационный файл
 
