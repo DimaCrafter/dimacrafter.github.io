@@ -1,0 +1,40 @@
+{
+	"frontend": {
+		"vue": {
+			"name": "Vue",
+			"pkg": "@vue/cli",
+			"init": "vue create frontend"
+		},
+		"ngx": {
+			"name": "Angular",
+			"pkg": "ngx-cli",
+			"init": "ng create frontend"
+		},
+		"choo": {
+			"name": "Choo.io (on Parcel)",
+			"pkg": "parcel",
+			"dependencies": ["choo.io"],
+			"scripts": {
+				"serve": "parcel index.html",
+				"build": "parcel build index.html"
+			},
+			"template": {
+				"index.html": {
+					"preset": "html",
+					"mode": "create",
+					"data": [
+						{ "type": "script", "src": "./main.js" }
+					]
+				},
+				"main.js": {
+					"preset": "import-api",
+					"mode": "create",
+					"append": [
+						"import Choo from 'choo.io'",
+						"// Your code here"
+					]
+				}
+			}
+		}
+	}
+}

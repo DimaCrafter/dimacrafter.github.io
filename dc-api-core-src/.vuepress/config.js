@@ -22,12 +22,22 @@ module.exports = {
 				],
 				sidebar: [
 					{
-						title: 'Quick Start',
+						title: 'Quick start',
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
 							'/en/',
 							'/en/featured.html'
+						]
+					},
+					{
+						title: 'API',
+						collapsable: false,
+						sidebarDepth: 2,
+						children: [
+							'/en/api/config.html',
+							'/en/api/controller.html',
+							'/en/api/session.html'
 						]
 					}
 				],
@@ -39,7 +49,8 @@ module.exports = {
 				label: 'Русский',
 				nav: [
 					{ text: 'CLI', link: '/ru/cli/' },
-					{ text: 'Продвигаемое', link: '/ru/featured.html' }
+					{ text: 'Рекомендуемое', link: '/ru/featured.html' },
+					{ text: 'API', link: '/ru/api/' },
 				],
 				sidebar: [
 					{
@@ -49,6 +60,16 @@ module.exports = {
 						children: [
 							'/ru/',
 							'/ru/featured.html'
+						]
+					},
+					{
+						title: 'API',
+						collapsable: false,
+						sidebarDepth: 2,
+						children: [
+							'/ru/api/config.html',
+							'/ru/api/controller.html',
+							'/ru/api/session.html'
 						]
 					}
 				],

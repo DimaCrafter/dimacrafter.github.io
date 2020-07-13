@@ -57,6 +57,7 @@ export default {
     white-space: nowrap;
 }
 
+/*// TODO: app.css */
 #app .token.string {
     color: #98c379;
 }
@@ -80,6 +81,25 @@ export default {
 
 #app div[class*="language-"] {
     background-color: #282c34;
+}
+
+@media (max-width: 719px) {
+    .navbar .home-link {
+        display: flex;
+        width: calc(100% - 30px);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar .home-link > .site-name {
+        display: block;
+        width: auto;
+    }   
+}
+
+.sidebar-mask {
+    backdrop-filter: blur(6px) saturate(1.25);
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 code[class*="language-"], pre[class*="language-"], .terminal {

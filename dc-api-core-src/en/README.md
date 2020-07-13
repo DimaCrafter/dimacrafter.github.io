@@ -102,75 +102,115 @@ Example installation process:
 
 ## Structure
 
+After `dc-api-core` installation, current directory will be look like below:
+
 <Tree :data="$page.frontmatter.structure" />
 
-## Configuration file
+This is main structure, that `dc-api-core` uses.
+You also can create here files and directories that you need.
 
-```json
+### Configuration file
+
+`config.json` contains parameters, used by `dc-api-core`,
+but you can store here you data.
+
+```js
 {
-    // Optional
-    "db": {
-        // mongo - dc-api-mongo driver's code (MongoDB)
-        "mongo": {
-            // All fields depends on driver, here specified most common
-            // Database name, required
-            "name": "test_database",
-            // Connection host, required
-            "host": "localhost",
-            // Connection port, optional
-            "port": 27017,
-            // Database username, optional
-            "user": "root",
-            // Database password, optional
-            "pass": "test-passwd"
-        }
-    },
-
-    // Optional. Sessions will be disabled if not filled
-    "session": {
-        // String, user for ecnrypting sessions, required
-        "secret": "some r@ndom str1ng",
-        // Database driver code, required
-        "store": "mongo",
-        // Session lifetime in zeit/ms format, optional
-        "ttl": "3d"
-    },
-
-    // Optional. HTTP will be used if not filled
-    "ssl": {
-        // Any μWS.SSLApp field, optional
-        "some_key": "value",
-        // Absolute path to SSL cetificate
-        "cert": "/etc/letsencrypt/live/awesome.site/cert.pem",
-        // Absolute path to privare SSL key
-        "key": "/etc/letsencrypt/live/awesome.site/privkey.pem"
-    },
-
-    // Array with plugins' package names, optional
-    "plugins": ["dc-api-mongo"],
-    // Accept CORS only from this domain, optional
-    "origin": "<Value of Origin header>",
-    // API listening port, optional
+    // Port that API server will started on
     "port": 8081,
-    // Time for WebSocket connection in seconds, optional
-    "ws_timeout": 60,
-    // Lifetime of existing WebSocket connection in seconds, optional.
-    // 0 - lifetime not limited
-    "ttl": 0,
-    // Directories whose updates will not trigger update in development mode, optional
-    "ignore": [],
-    // Readonly, true if development mode enabled
-    "isDev": "<Boolean>",
+    // We will need this string in the future.
+    "auth_pass": "security"
+}
+```
 
-    // Object than will be merged with config in development mode, optional
-    "dev": {
-        // Overrides value of keys db.mongo.name and db.mongo.name
-        "db": {
-            "mongo": {
-                "name": "dev_database",
-                "pass": "dev-passwd"
-            }
-        },
+**See also:** [Available properties in configuration file](./api/config)
+
+### Controllers
+
+Controller is a class that contains methods that handles requests coming to server.
+That's why they are mainly called HTTP handlers. If you want work with WebSockets, read about [Socket controller](#no-link) later.
+
+As shown above, controllers are located in the `controllers` directory.
+The name of the controller's file must be in PascalCase and match the name
+of exported class.
+
+By default, request URL handles like `/controller/handler`.
+
+Initially, CLI creates the `Info` controller with `status` handler:
+
+```js
+// Importing `package.json` from installed `dc-api-core` package
+const pkg = require('dc-api-core/package');
+
+// Exporting controller's class
+module.exports = class Info {
+    // Declaring a handler method that will accept requests
+    // on URL http://localhost:8081/Info/status
+    status () {
+        // Sends an object with installed `dc-api-core` version
+        // and current server time in response
+        this.send({ version: pkg.version, time: new Date().toLocaleString() });
     }
 }
 ```
+
+If you [start the API server](#starting-api-server) and open in your browser `http://localhost:8081/Info/status`,
+then you will see a server response similar to example below:
+
+```json
+{
+    "version": "0.2.3-9",
+    "time": "05.07.2020, 18:21:32"
+}
+```
+
+---
+
+Now let's make our `Test` controller. To do this, create
+`controllers/Test.js` file with the following content:
+
+```js
+// Getting configuration file's data
+const config = require('dc-api-core/config');
+
+class Test {
+    // This method will be called before calling any handler
+    onLoad () {
+        // Comparing `token` GET parameter with `auth_pass` property,
+        // that was specified in configuration file earlier
+        if (this.query.token != config.auth_pass) {
+            // If this method returns `true`,
+            // server will stop this request handling
+            return true;
+        }
+    }
+
+    hello () {
+        this.send('Hello, hello!');
+    }
+}
+
+module.exports = Test;
+```
+
+Now, if you open URL `http://localhost:8081/Test/hello` or `http://localhost:8081/Test/hello?token=incorrect`, you willn't receive an answer,
+and `http://localhost:8081/Test/hello?token=security` will return you `"Hello, hello!"`.
+
+## Starting API server
+
+The server can be started in two modes: normal and development mode.
+
+**Development mode:**
+
+Starting with: `yarn dev` or `npm run dev`.
+
+In development mode API server will be restarted after changing any file
+in his directory. There are also `config.dev` configuration will be used as main.
+
+See also: `dev` branch in [configuration file](./api/config)
+
+**Normal mode:**
+
+Starting with: `yarn start` or `npm start`.
+
+In this mode API server will be started for production environment.
