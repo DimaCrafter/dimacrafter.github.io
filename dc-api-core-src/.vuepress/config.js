@@ -37,6 +37,7 @@ module.exports = {
 						children: [
 							'/en/api/config.html',
 							'/en/api/controller.html',
+							'/en/api/core.html',
 							'/en/api/session.html'
 						]
 					}
@@ -69,6 +70,7 @@ module.exports = {
 						children: [
 							'/ru/api/config.html',
 							'/ru/api/controller.html',
+							'/ru/api/core.html',
 							'/ru/api/session.html'
 						]
 					}

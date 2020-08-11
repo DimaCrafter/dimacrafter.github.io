@@ -1,14 +1,16 @@
 ---
-repos: [
-	{
-		name: 'dc-api-client',
-		fullname: 'DimaCrafter/dc-api-client',
-		description: 'HTTP client for working with dc-api-core.'
-	},
+pluginRepos: [
 	{
 		name: 'dc-api-mongo',
 		fullname: 'DimaCrafter/dc-api-mongo',
 		description: 'Plugin, that adds MongoDB support. Registers `mongo` driver.'
+	}
+]
+otherRepos: [
+	{
+		name: 'dc-api-client',
+		fullname: 'DimaCrafter/dc-api-client',
+		description: 'HTTP client for working with dc-api-core.'
 	},
 	{
 		name: 'dc-api-examples',
@@ -21,4 +23,10 @@ repos: [
 
 # Featured repositories
 
-<RepoCard v-for="repo of $frontmatter.repos" v-bind="repo" :key="repo.name" />
+## Plugins
+
+<RepoCard v-for="repo of $frontmatter.pluginRepos" v-bind="repo" :key="repo.name" />
+
+## Other
+
+<RepoCard v-for="repo of $frontmatter.otherRepos" v-bind="repo" :key="repo.name" />
