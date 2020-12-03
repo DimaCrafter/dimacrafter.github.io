@@ -1,4 +1,6 @@
 const moment = require('moment');
+const path = require('path');
+
 module.exports = {
 	base: '/dc-api-core/',
 	dest: '../dc-api-core',
@@ -38,7 +40,17 @@ module.exports = {
 							'/en/api/config.html',
 							'/en/api/controller.html',
 							'/en/api/core.html',
+							'/en/api/plugin-context.html',
+							'/en/api/database-driver.html',
 							'/en/api/session.html'
+						]
+					},
+					{
+						title: 'Plugins',
+						collapsable: false,
+						sidebarDepth: 2,
+						children: [
+							'./en/plugins/basics.html'
 						]
 					}
 				],
@@ -71,13 +83,28 @@ module.exports = {
 							'/ru/api/config.html',
 							'/ru/api/controller.html',
 							'/ru/api/core.html',
+							'/ru/api/plugin-context.html',
+							'/ru/api/database-driver.html',
 							'/ru/api/session.html'
+						]
+					},
+					{
+						title: 'Плагины',
+						collapsable: false,
+						sidebarDepth: 2,
+						children: [
+							'./ru/plugins/basics.html'
 						]
 					}
 				],
 				lastUpdated: 'Последнее обновление',
 				editLinkText: 'Помогите улучшить эту страницу!'
 			}
+		},
+
+		algolia: {
+			apiKey: 'ef4744a184e3262bcb39b0c6dde37b2f',
+			indexName: 'dc-api-core'
 		}
 	},
 	locales: {
@@ -94,6 +121,8 @@ module.exports = {
 			label: 'Русский'
 		}
 	},
+
+	evergreen: true,
 	plugins: [
 		['@vuepress/last-updated', {
 			transformer (timestamp, lang) {
@@ -101,5 +130,8 @@ module.exports = {
 				return moment(timestamp).fromNow()
 			}
 		}]
-	]
+	],
+	alias: {
+		'styles': path.resolve(__dirname, './styles')
+	}
 };

@@ -4,6 +4,11 @@ pluginRepos: [
 		name: 'dc-api-mongo',
 		fullname: 'DimaCrafter/dc-api-mongo',
 		description: 'Plugin, that adds MongoDB support. Registers `mongo` driver.'
+	},
+	{
+		name: 'dc-api-auth',
+		fullname: 'DimaCrafter/dc-api-auth',
+		description: 'Simple plugin that simplifies authorization via VK and Google'
 	}
 ]
 otherRepos: [

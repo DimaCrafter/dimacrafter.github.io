@@ -1,0 +1,73 @@
+@syntax-red: #e06c75;
+@syntax-yellow: #e5c07b;
+@syntax-orange: #d19a66;
+@syntax-green: #98c379;
+@syntax-blue: #61afef;
+@syntax-purple: #c678dd;
+@syntax-gray: #abb2bf;
+@syntax-lightgray: #d9e2f5;
+@syntax-darkgray: #5c6370;
+
+::selection {
+    background: rgba(0, 161, 255, 0.15);
+}
+
+// Layout
+.sidebar-mask {
+    backdrop-filter: blur(6px) saturate(1.25);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.theme-default-content :not(pre) > code {
+    white-space: nowrap;
+}
+
+@media (max-width: 719px) {
+    .navbar .home-link {
+        display: flex;
+        width: calc(100% - 30px);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar .home-link > .site-name {
+        display: block;
+        width: auto;
+    }   
+}
+
+#app {
+    div[class*="language-"], .terminal, .tree {
+        ::selection {
+            background-color: rgba(180, 220, 250, 0.125);
+        }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"],
+    .terminal {
+        font-family: 'Ubuntu Mono derivative Powerline', 'Ubuntu Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
+
+    // Syntax highlight
+    div[class*="language-"] {
+        background-color: #282c34;
+        & > pre > code { color: @syntax-lightgray; }
+    }
+
+    .token {
+        &.keyword { color: @syntax-purple; }
+        &.function { color: @syntax-blue; }
+        &.class-name { color: @syntax-yellow; }
+        &.string { color: @syntax-green; }
+        &.interpolation-punctuation { color: @syntax-red; }
+        
+        &.property, &.function-variable { color: @syntax-red; }
+        &.punctuation, &.operator { color: @syntax-gray; }
+        &.constant, &.number { color: @syntax-orange; }
+        &.comment {
+            color: @syntax-darkgray;
+            font-style: italic;
+        }
+    }
+}

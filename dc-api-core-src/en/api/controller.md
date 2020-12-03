@@ -106,7 +106,9 @@ this.redirect('https://google.com');
 
 * Sending buffer or file
 
-  **Warning!** When sending file, `code` and `isPure` arguments must be specified.
+  ::: warning Warning!
+  When sending file, `code` and `isPure` arguments must be specified.
+  :::
 
   ```js
   this.send(fs.readFileSync('cat.png'), 200, true);

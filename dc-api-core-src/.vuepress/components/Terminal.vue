@@ -23,16 +23,6 @@ export default {
 </script>
 
 <style>
-::selection {
-    background: rgba(0, 161, 255, 0.15);
-}
-
-#app div[class*="language-"] ::selection,
-.terminal::selection, .terminal ::selection,
-.tree ::selection {
-    background: rgba(180, 220, 250, 0.125);
-}
-
 .terminal {
     position: relative;
     background-color: #282c34;
@@ -51,58 +41,5 @@ export default {
     right: 1em;
     font-size: 0.85rem;
     color: rgba(255,255,255,0.4);
-}
-
-.theme-default-content :not(pre) > code {
-    white-space: nowrap;
-}
-
-/*// TODO: app.css */
-#app .token.string {
-    color: #98c379;
-}
-
-#app .token.property {
-    color: #e06c75;
-}
-
-#app .token.punctuation, #app .token.operator {
-    color: #abb2bf;
-}
-
-#app .token.number {
-    color: #d19a66;
-}
-
-#app .token.comment {
-    color: #5c6370;
-    font-style: italic;
-}
-
-#app div[class*="language-"] {
-    background-color: #282c34;
-}
-
-@media (max-width: 719px) {
-    .navbar .home-link {
-        display: flex;
-        width: calc(100% - 30px);
-        align-items: center;
-        justify-content: center;
-    }
-
-    .navbar .home-link > .site-name {
-        display: block;
-        width: auto;
-    }   
-}
-
-.sidebar-mask {
-    backdrop-filter: blur(6px) saturate(1.25);
-    background-color: rgba(0, 0, 0, 0.15);
-}
-
-code[class*="language-"], pre[class*="language-"], .terminal {
-    font-family: 'Ubuntu Mono derivative Powerline', 'Ubuntu Mono', source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 </style>
