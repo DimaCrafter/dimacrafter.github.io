@@ -1,7 +1,7 @@
 # Plugin context
 
-Plugin context - is special object, that lets you to register plugin functionality,
-passed as first argument of plugin installer during it's loading.
+Plugin context is a special object, that lets you to register plugin functionality,
+it is passed as first argument of plugin installer during it's loading.
 
 Also you can get context by importing:
 
@@ -15,7 +15,7 @@ const { ctx: core } = require('dc-api-core/plugins');
 
 **Arguments:**
 
-* `driver` - [class of database driver](./database-driver.html)
+* `driver` - [driver database class](./database-driver.html)
 * `name: String` - short name or code
 
 **Usage:**
@@ -36,7 +36,7 @@ module.exports = core => {
 };
 ```
 
-Usage of loaded plugin in controller, for example:
+An example of using loaded plugin in controller:
 
 ```js
 const db = require('dc-api-core/DB').mycooldb('config-name');

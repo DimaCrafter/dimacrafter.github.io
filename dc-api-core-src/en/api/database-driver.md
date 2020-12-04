@@ -1,9 +1,11 @@
 # Database driver
 
-Database driver's class should extend standart
+Database driver's class should extend from
 [`EventEmitter`](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-Constructor receives 2 arguments: configuration and it's name.
+Constructor receives 2 arguments: configuration and configuration name.
+
+**Example:**
 
 ```js
 // conf == require('dc-api-core/config').db[confName]
@@ -22,12 +24,12 @@ constructor (conf, confName) {
 
 **Arguments:**
 
-* `error: Error` - optional error object, catched during connection to DB
+* `error: Error` - optional error object, caught during connection to DB
 
 **Usage:**
 
-This event must be emitted  without arguments right after successfull connection to database,
-or when error occurs during connection with passing an Error object.
+This event must be emitted without arguments right after a successful connection to the database,
+or with an Error argument object when an error occurs during a connection.
 
 ### `no-model`
 
@@ -37,8 +39,8 @@ or when error occurs during connection with passing an Error object.
 
 **Usage:**
 
-Event uses to tell user that database model doesn't exists.
-Example of usage shown in [`getModel`](#getmodel) method.
+Event is used to tell the user that the database model doesn't exists.
+Example usage shown in [`getModel`](#getmodel) method.
 
 ## Methods
 
@@ -50,7 +52,7 @@ Example of usage shown in [`getModel`](#getmodel) method.
 
 **Usage:**
 
-Method will be called for generating database model object by it's name.
+Method will be called for generate database model object by given name.
 
 **Example:**
 

@@ -5,6 +5,8 @@
 
 Конструктор принимает 2 агрумента: конфигурация и её название.
 
+**Пример:**
+
 ```js
 // conf == require('dc-api-core/config').db[confName]
 constructor (conf, confName) {
