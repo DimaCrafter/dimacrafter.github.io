@@ -42,3 +42,39 @@ Console output:
     error: <Error object>
 }
 ```
+
+## Classes
+
+### `HttpError`
+
+* `message: any` - any valid for [`this.send`](./controller.html#this-send) value
+* `code: number` - HTTP error code (shoud be ≥400)
+
+**Usage:**
+
+Allows you to stop HTTP handler execution in any place and reply user with specified
+message and error code.
+
+::: warning Warning!
+It is very unrecommended to use this instead of `this.send` in handler method.
+This class is designed to be used in plugins or functions called withoud passing context.
+:::
+
+**Example:**
+
+controllers/Test.js:
+
+```js
+const { HttpError } = require('dc-api-core');
+function someUtilityMethod (value) {
+    if (!value || Number.isNaN(value)) throw new HttpError('Incorrect value', 400);
+    else return value ** (value / 2);
+}
+
+module.exports = class Test {
+    // /Test/makeSmth - [400] "Incorrect value"
+    // /Test/makeSmth?input=infinity - [400] "Incorrect value"
+    // /Test/makeSmth?input=4 - [200] 16
+    makeSmth () { this.send(someUtilityMethod(parseFloat(this.query.input))); }
+}
+```

@@ -1,5 +1,81 @@
 # Контроллер
 
+## Отправка данных
+
+Для отправки данных пользователю из HTTP-обработчика Вы можете использовать метод
+контекста контроллера [`this.send`](#this-send), вернуть значение (не пустой `return`) или
+выбросить исключение [`HttpError`](./core.html#httperror)
+
+**Пример:**
+
+```js
+module.exports = class Test {
+    // Ниже представлены полностью аналогичные реализации отправки данных
+    async getSmth () {
+        return await db.Smth.find({ ... }).lean();
+    }
+
+    async getSmth () {
+        this.send(await db.Smth.find({ ... }).lean());
+    }
+
+    getSmth () {
+        db.Smth.find({ ... }).lean().exec((err, list) => {
+            if (err) this.send(err.toString(), 500);
+            else this.send(list);
+        });
+    }
+}
+```
+
+## Хуки
+
+### `onLoad`
+
+Вызывается до вызова любого обработчика в данном контроллере с передачей контекста (значения в `this`).
+Может прервать обработку запроса, например, если пользователь не имеет нужный уровень доступа.
+
+Так же возможно добавление дополнительных данных в контекст обработчика, таких как информация об авторизации.
+
+**Примеры:**
+
+```js
+module.exports = class Bill {
+    async onLoad () {
+        const header = this.header('Authorization');
+        if (!header || !header.startsWith('Bearer')) {
+            return this.send('Incorrect auth type', 400);
+        }
+
+        const customer = await db.Customer
+            .findOne({ apiToken: header.slice(7) })
+            .select('_id')
+            .lean();
+
+        if (!customer) {
+            return this.send('Incorrect auth token', 403);
+        }
+
+        this.auth = { customer: customer._id };
+    }
+
+    async list () {
+        return await db.Bill.find({ customer: this.auth.customer }).lean();
+    }
+}
+```
+
+```js
+module.exports = class Admin {
+    async onLoad () {
+        if (this.session.access != 'admin') {
+            // Соединение будет закрыто без ответа
+            this.drop();
+        }
+    }
+}
+```
+
 ## Свойства
 
 ### `this.address`
@@ -50,6 +126,10 @@ this.send(this.query);
 **См. также:** [Сессия](./session)
 
 ## Методы HTTP обработчиков
+
+### `this.drop`
+
+Сбрасывает соединение без ответа на запрос.
 
 ### `this.header`
 
@@ -104,7 +184,7 @@ this.redirect('https://google.com');
   this.send({ hello: true });
   ```
 
-* Отправка буффера или файла
+* Отправка буфера или файла
 
   ::: warning Внимание!
   При отправке файла нужно обязательно указывать аргументы `code` и `isPure`.

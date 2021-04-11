@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
 	base: '/dc-api-core/',
-	dest: '../dc-api-core',
 	head: [
 		['link', { rel: 'shortcut icon', href: '/favicon.ico' }]
 	],
@@ -12,7 +11,7 @@ module.exports = {
 		docsDir: 'dc-api-core-src',
 		docsBranch: 'master',
 		editLinks: true,
-	
+
 		logo: '/img/logo.svg',
 		locales: {
 			'/en/': {

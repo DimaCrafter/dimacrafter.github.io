@@ -1,5 +1,80 @@
 # Controller
 
+## Data sending
+
+To reply user with data from HTTP handler you can use context method [`this.send`](#this-send),
+return value (non-enpty `return`) or throw [`HttpError`](./core.html#httperror) exception.
+
+**Example:**
+
+```js
+module.exports = class Test {
+    // Below are fully analogical implementations of data sending.
+    async getSmth () {
+        return await db.Smth.find({ ... }).lean();
+    }
+
+    async getSmth () {
+        this.send(await db.Smth.find({ ... }).lean());
+    }
+
+    getSmth () {
+        db.Smth.find({ ... }).lean().exec((err, list) => {
+            if (err) this.send(err.toString(), 500);
+            else this.send(list);
+        });
+    }
+}
+```
+
+## Hooks
+
+### `onLoad`
+
+Will be called before calling any handler in controller with passing context (values in `this`).
+Can be used to stop request processing if user didn't have required access level.
+
+It is also possible to add additional data to handler context such as authority information.
+
+**Examples:**
+
+```js
+module.exports = class Bill {
+    async onLoad () {
+        const header = this.header('Authorization');
+        if (!header || !header.startsWith('Bearer')) {
+            return this.send('Incorrect auth type', 400);
+        }
+
+        const customer = await db.Customer
+            .findOne({ apiToken: header.slice(7) })
+            .select('_id')
+            .lean();
+
+        if (!customer) {
+            return this.send('Incorrect auth token', 403);
+        }
+
+        this.auth = { customer: customer._id };
+    }
+
+    async list () {
+        return await db.Bill.find({ customer: this.auth.customer }).lean();
+    }
+}
+```
+
+```js
+module.exports = class Admin {
+    async onLoad () {
+        if (this.session.access != 'admin') {
+            // Connection will be closed without reply
+            this.drop();
+        }
+    }
+}
+```
+
 ## Properties
 
 ### `this.address`
@@ -50,6 +125,10 @@ Contains data of current session.
 **See also:** [Session](./session)
 
 ## Methods of HTTP handlers
+
+### `this.drop`
+
+Drops the connection without responding to the request.
 
 ### `this.header`
 
