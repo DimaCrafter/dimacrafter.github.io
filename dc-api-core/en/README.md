@@ -207,7 +207,7 @@ Starting with: `yarn dev` or `npm run dev`.
 In development mode API server will be restarted after changing any file
 in his directory. There are also `config.dev` configuration will be used as main.
 
-See also: `dev` branch in [configuration file](./api/config)
+**See also:** `dev` branch in [configuration file](./api/config)
 
 **Normal mode:**
 
