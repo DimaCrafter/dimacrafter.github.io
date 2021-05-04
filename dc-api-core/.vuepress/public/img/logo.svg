@@ -1,31 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+<!-- Made by nesc.design -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1028 1028">
 	<defs>
-		<linearGradient id="fg-gradient" gradientUnits="userSpaceOnUse" x1="2" y1="0" x2="12" y2="14">
-			<stop offset="0" stop-color="#A4EE98" />
-			<stop offset="1" stop-color="#3FA986" />
+		<linearGradient id="orange" gradientUnits="userSpaceOnUse" x1="-12.4551" y1="544.1099" x2="544.1158" y2="-12.461">
+			<stop offset="0" stop-color="#F89E48" />
+			<stop offset="0.1803" stop-color="#F7954C" />
+			<stop offset="0.4799" stop-color="#F57B55" />
+			<stop offset="0.8597" stop-color="#F15265" />
+			<stop offset="1" stop-color="#F0416C" />
 		</linearGradient>
-		<linearGradient id="bg-gradient" gradientUnits="userSpaceOnUse" x1="14" y1="2" x2="4" y2="16">
-			<stop offset="0" stop-color="#6B7495" />
-			<stop offset="1" stop-color="#2C324A" />
+		<linearGradient id="indigo" gradientUnits="userSpaceOnUse" x1="483.891" y1="1040.4648" x2="1040.4647" y2="483.8911">
+			<stop offset="0" stop-color="#9D2AF2" />
+			<stop offset="0.1682" stop-color="#942AF1" />
+			<stop offset="0.4479" stop-color="#7A2BEF" />
+			<stop offset="0.8023" stop-color="#512DEB" />
+			<stop offset="1" stop-color="#372EE8" />
 		</linearGradient>
 	</defs>
-	<path fill="url(#bg-gradient)" d="M12.5,16h-8C3.7,16,3,15.3,3,14.5v-12C3,1.7,3.7,1,4.5,1h8C13.3,1,14,1.7,14,2.5v12C14,15.3,13.3,16,12.5,16z" />
-	<path fill="url(#fg-gradient)" d="M11.5,15h-8C2.7,15,2,14.3,2,13.5v-12C2,0.7,2.7,0,3.5,0h8C12.3,0,13,0.7,13,1.5v12C13,14.3,12.3,15,11.5,15z" />
-	<g fill="none" stroke="#fff" stroke-width="0.75" stroke-linecap="round">
-		<circle cx="7.5" cy="3.7" r="1.5"/>
-		<line x1="6.4" y1="4.8" x2="5.7" y2="5.6" />
-		<line x1="9.3" y1="1.9" x2="8.6" y2="2.6" />
-		<line x1="6.4" y1="2.7" x2="5.7" y2="1.9" />
-		<line x1="9.3" y1="5.6" x2="8.6" y2="4.8" />
-		<line x1="7.5" y1="5.2" x2="7.5" y2="6.2" />
-		<line x1="7.5" y1="1.3" x2="7.5" y2="2.2" />
-		<line x1="6"   y1="3.7" x2="5"   y2="3.7" />
-		<line x1="10"  y1="3.7" x2="9"   y2="3.7" />
-		<g stroke-width="1" opacity="0.75">
-			<line x1="5" y1="13.2" x2="10" y2="13.2" />
-			<line x1="4" y1="9.2"  x2="11" y2="9.2"  />
-			<line x1="6" y1="11.2" x2="9"  y2="11.2" />
-		</g>
-	</g>
+	<circle fill="#020042" cx="514" cy="514" r="104" />
+	<path fill="url(#orange)" d="M616.8,102.8c0,56.8-46,102.8-102.8,102.8c-170.3,0-308.4,138.1-308.4,308.4c0,56.8-46,102.8-102.8,102.8C46.9,616.8,1.5,572.2,0,516.7c0-0.9,0-1.8,0-2.7c0-0.9,0-1.8,0-2.7C1.5,229.6,229.6,1.4,511.3,0c0.9,0,1.8,0,2.7,0c0.9,0,1.8,0,2.7,0C572.2,1.4,616.8,46.9,616.8,102.8z" />
+	<path fill="url(#indigo)" d="M1028,514c0,0.9,0,1.8,0,2.7c-1.4,281.8-229.5,509.9-511.3,511.3c-0.9,0-1.8,0-2.7,0c-0.9,0-1.8,0-2.7,0c-55.5-1.4-100.2-46.9-100.2-102.8c0-56.8,46-102.8,102.8-102.8c170.3,0,308.4-138.1,308.4-308.4c0-56.8,46-102.8,102.8-102.8c55.9,0,101.4,44.6,102.8,100.1C1028,512.2,1028,513.1,1028,514z" />
 </svg>

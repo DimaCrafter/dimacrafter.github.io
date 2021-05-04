@@ -93,7 +93,8 @@ export default {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-    flex: 1;
+    /* flex: 1; */
+    margin-right: 40px;
 }
 
 .tree-entry {

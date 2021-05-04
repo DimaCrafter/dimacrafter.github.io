@@ -8,18 +8,20 @@ module.exports = {
 	],
 	themeConfig: {
 		docsRepo: 'DimaCrafter/dimacrafter.github.io',
-		docsDir: 'dc-api-core-src',
+		docsDir: 'dc-api-core',
 		docsBranch: 'master',
 		editLinks: true,
+		smoothScroll: true,
+		title: null,
 
-		logo: '/img/logo.svg',
+		logo: '/img/full.svg',
 		locales: {
 			'/en/': {
 				selectText: 'Languages',
 				label: 'English',
 				nav: [
 					{ text: 'CLI', link: '/en/cli/' },
-					{ text: 'Featured', link: '/en/featured.html' }
+					{ text: 'Featured', link: '/en/featured' }
 				],
 				sidebar: [
 					{
@@ -28,7 +30,7 @@ module.exports = {
 						sidebarDepth: 2,
 						children: [
 							'/en/',
-							'/en/featured.html'
+							'/en/featured'
 						]
 					},
 					{
@@ -36,12 +38,13 @@ module.exports = {
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
-							'/en/api/config.html',
-							'/en/api/controller.html',
-							'/en/api/core.html',
-							'/en/api/plugin-context.html',
-							'/en/api/database-driver.html',
-							'/en/api/session.html'
+							'/en/api/config',
+							'/en/api/controller',
+							'/en/api/core',
+							'/en/api/plugin-context',
+							'/en/api/database-driver',
+							'/en/api/session',
+							'/en/api/router'
 						]
 					},
 					{
@@ -49,7 +52,7 @@ module.exports = {
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
-							'./en/plugins/basics.html'
+							'./en/plugins/basics'
 						]
 					}
 				],
@@ -60,8 +63,8 @@ module.exports = {
 				selectText: 'Язык',
 				label: 'Русский',
 				nav: [
-					{ text: 'CLI', link: '/ru/cli/' },
-					{ text: 'Рекомендуемое', link: '/ru/featured.html' },
+					{ text: 'Изменения v0.3', link: '/ru/changes' },
+					{ text: 'Рекомендуемое', link: '/ru/featured' },
 					{ text: 'API', link: '/ru/api/' },
 				],
 				sidebar: [
@@ -71,7 +74,7 @@ module.exports = {
 						sidebarDepth: 2,
 						children: [
 							'/ru/',
-							'/ru/featured.html'
+							'/ru/featured'
 						]
 					},
 					{
@@ -79,12 +82,13 @@ module.exports = {
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
-							'/ru/api/config.html',
-							'/ru/api/controller.html',
-							'/ru/api/core.html',
-							'/ru/api/plugin-context.html',
-							'/ru/api/database-driver.html',
-							'/ru/api/session.html'
+							'/ru/api/config',
+							'/ru/api/controller',
+							'/ru/api/core',
+							'/ru/api/plugin-context',
+							'/ru/api/database-driver',
+							'/ru/api/session',
+							'/ru/api/router'
 						]
 					},
 					{
@@ -92,7 +96,7 @@ module.exports = {
 						collapsable: false,
 						sidebarDepth: 2,
 						children: [
-							'./ru/plugins/basics.html'
+							'/ru/plugins/basics'
 						]
 					}
 				],
