@@ -7,6 +7,9 @@
 :::
 
 * Переход с изначального регистра названий контроллера и обработчика на kebab-case.
-  Если требуется поддержка старого поведения, то следует использовать параметр `config.supportOldCase`.
-* Возвращение boolean-значения из `onLoad` больше не поддерживается, вместо этого используется
-  `this.drop`, `this.send` или выбрасываение исключения `HttpError`.
+  Если требуется поддержка старого поведения, то следует использовать параметр [`config.supportOldCase`](./api/config.html).
+* Возвращение boolean-значения из [`onLoad`](./api/controller.html#onload) больше не поддерживается, вместо этого используется
+  [`this.drop`](./api/controller.html#this-drop), [`this.send`](./api/controller.html#this-send) или
+  выбрасываение исключения [`HttpError`](./api/core.html#httperror).
+* Добавлены каналы для WebSocket соединений. См. [`this.subscribe`](./api/controller.html#this-subscribe),
+  [`this.unsubscribe`](./api/controller.html#this-unsubscribe) и [`this.broadcast`](./api/controller.html#this-broadcast).

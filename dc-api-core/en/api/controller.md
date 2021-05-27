@@ -223,6 +223,52 @@ API.Socket.on('test-event', (prop, value) => {
 });
 ```
 
+### `this.subscribe`
+
+**Arguments:**
+
+* `channel: String` - channel name
+
+**Usage:**
+
+Makes current connection subscribed to specified channel.
+
+**Example:**
+
+`controllers/Socket.js`:
+
+```js
+// Subscribing on channel
+this.subscribe('chat');
+
+// This will send data, like `this.emit('chat-message', 'Hello there!')`,
+// for all connections subscriber on channel "chat".
+this.broadcast('chat', 'chat-message', 'Hello there!');
+```
+
+### `this.unsubscribe`
+
+**Arguments:**
+
+* `channel: String` - channel name (optional)
+
+**Usage:**
+
+Removes subscription on specified channel for current connection, otherwise removes all subscriptions.
+
+### `this.broadcast`
+
+**Arguments:**
+
+* `channel: String` - channel name
+* `event: String` - event name
+* `...args: Any` - arguments for event handler
+
+**Usage:**
+
+Emits event for all conecctions that have subscription on specified channel.
+If channel name is `null`, event will be emitted for all active WebSocket connections.
+
 ### `this.end`
 
 **Arguments:**
