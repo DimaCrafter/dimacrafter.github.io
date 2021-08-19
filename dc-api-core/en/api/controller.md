@@ -1,5 +1,43 @@
 # Controller
 
+::: warning Attention!
+You can't directly access controller's self methods and properties, because `this` binded
+to controller context (that described on this page).
+To access self fields use [`this.controller`](#this-controller).
+:::
+
+**Won't work:**
+
+```js
+module.exports = class Test {
+    constructor () {
+        this.defaultName = 'stranger';
+    }
+
+    _getGreeting (name) {
+        return `Hello, ${name || this.defaultName}!`;
+    }
+
+    hello () {
+        return this._getString(this.query.name);
+    }
+}
+```
+
+**Will work:**
+
+```js
+module.exports = class Test {
+    _getGreeting (name) {
+        return `Hello, ${name || this.controller.defaultName}!`;
+    }
+
+    hello () {
+        return this.controller._getString(this.query.name);
+    }
+}
+```
+
 ## Data sending
 
 To reply user with data from HTTP handler you can use context method [`this.send`](#this-send),
@@ -192,6 +230,26 @@ this.redirect('https://google.com');
   ```js
   this.send(fs.readFileSync('cat.png'), 200, true);
   ```
+
+## Hooks of WebSocket handlers
+
+### `open`
+
+Will be called on connection.
+
+### `close`
+
+Will be called on disconnection.
+
+### `error`
+
+**Arguments:**
+
+* `code: number` - [WebSocket error code](https://github.com/Luka967/websocket-close-codes)
+* `message?: string` - description error, optional
+
+Will be called on WebSocket connection error.
+Also fires `close` hook.
 
 ## Methods of WebSocket handlers
 

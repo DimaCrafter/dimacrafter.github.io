@@ -47,6 +47,8 @@ Console output:
 
 ### `HttpError`
 
+**Properties:**
+
 * `message: any` - any valid for [`this.send`](./controller.html#this-send) value
 * `code: number` - HTTP error code (shoud be ≥400)
 
@@ -76,5 +78,24 @@ module.exports = class Test {
     // /Test/makeSmth?input=infinity - [400] "Incorrect value"
     // /Test/makeSmth?input=4 - [200] 16
     makeSmth () { this.send(someUtilityMethod(parseFloat(this.query.input))); }
+}
+```
+
+### `SocketController`
+
+**Usage:**
+
+This class marks controller as a WebSocket handler.
+
+**Example:**
+
+controllers/TestSocket.js:
+
+```js
+const { SocketController } = require('dc-api-core');
+
+// Will serving on ws://localhost:8080/test-socket
+module.exports = class TestSocket extends SocketController {
+    ping () { this.emit('pong'); }
 }
 ```

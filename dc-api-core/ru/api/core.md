@@ -47,6 +47,8 @@ module.exports = class Test {
 
 ### `HttpError`
 
+**Свойства:**
+
 * `message: any` - любое допустимое для [`this.send`](./controller.html#this-send) значение
 * `code: number` - HTTP код ошибки (должен быть ≥400)
 
@@ -77,5 +79,24 @@ module.exports = class Test {
     // /Test/makeSmth?input=infinity - [400] "Incorrect value"
     // /Test/makeSmth?input=4 - [200] 16
     makeSmth () { this.send(someUtilityMethod(parseFloat(this.query.input))); }
+}
+```
+
+### `SocketController`
+
+**Использование:**
+
+При наследовании контроллер помечается как WebSocket обработчик.
+
+**Пример:**
+
+controllers/TestSocket.js:
+
+```js
+const { SocketController } = require('dc-api-core');
+
+// Будет доступен на ws://localhost:8080/test-socket
+module.exports = class TestSocket extends SocketController {
+    ping () { this.emit('pong'); }
 }
 ```

@@ -13,3 +13,5 @@
   выбрасываение исключения [`HttpError`](./api/core.html#httperror).
 * Добавлены каналы для WebSocket соединений. См. [`this.subscribe`](./api/controller.html#this-subscribe),
   [`this.unsubscribe`](./api/controller.html#this-unsubscribe) и [`this.broadcast`](./api/controller.html#this-broadcast).
+* Добавлена поддержка кастомных WebSocket контроллеров через наследование класса [`SocketController`](./api/core.html#socketcontroller).
+* Теперь использование контроллера `Socket` без наследования [`SocketController`](./api/core.html#socketcontroller) считается устаревшим.

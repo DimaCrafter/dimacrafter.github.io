@@ -1,5 +1,43 @@
 # Контроллер
 
+::: warning Внимание!
+В классе контроллера Вы не можете получить доступ к его полям и методам напрямую,
+так как `this` связан с контекстом контроллера (описан на этой странице).
+Для доступа к собственным полям используйте [`this.controller`](#this-controller).
+:::
+
+**Не будет работать:**
+
+```js
+module.exports = class Test {
+    constructor () {
+        this.defaultName = 'stranger';
+    }
+
+    _getGreeting (name) {
+        return `Hello, ${name || this.defaultName}!`;
+    }
+
+    hello () {
+        return this._getString(this.query.name);
+    }
+}
+```
+
+**Будет работать:**
+
+```js
+module.exports = class Test {
+    _getGreeting (name) {
+        return `Hello, ${name || this.controller.defaultName}!`;
+    }
+
+    hello () {
+        return this.controller._getString(this.query.name);
+    }
+}
+```
+
 ## Отправка данных
 
 Для отправки данных пользователю из HTTP-обработчика Вы можете использовать метод
@@ -193,6 +231,26 @@ this.redirect('https://google.com');
   ```js
   this.send(fs.readFileSync('cat.png'), 200, true);
   ```
+
+## Хуки WebSocket обработчиков
+
+### `open`
+
+Вызывается сразу после установки подключения.
+
+### `close`
+
+Вызывается сразу после отключения клиента.
+
+### `error`
+
+**Аргументы:**
+
+* `code: number` - [коды ошибки WebSocket](https://github.com/Luka967/websocket-close-codes)
+* `message?: string` - описание ошибка, опционально
+
+Вызывается при возникновении ошибки на уровне WebSocket соединения.
+Также в этом случае вызывается хук `close`.
 
 ## Методы WebSocket обработчиков
 
