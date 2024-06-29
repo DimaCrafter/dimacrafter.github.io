@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>iproute2-map</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/0.DC2b7jYw.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.BJVf2xsy.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.CtONnQNp.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BvLojk_z.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.BuZi1xnc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.B-q_ATQU.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.DHdlrUwM.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.R_biiVZi.js">
+	</head>
+	<body>
+		<div style="display: contents">  <h1 data-svelte-h="svelte-1epkebj">iproute2-map</h1> <div class="cols"><div>Rules (<code data-svelte-h="svelte-7rlnws">ip -4 rule</code>):
+		<textarea></textarea></div> <div>Routes (<code data-svelte-h="svelte-rbmvbj">ip -4 route show table all</code>):
+		<textarea></textarea></div></div> <button data-svelte-h="svelte-14r2qmx">Render</button> <br> <br> <div class="cols"><div class="rules"></div> <div class="tables"></div> </div> 
+			
+			<script>
+				{
+					__sveltekit_t1fq55 = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.BJVf2xsy.js"),
+						import("./_app/immutable/entry/app.BuZi1xnc.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
