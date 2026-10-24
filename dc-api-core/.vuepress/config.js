@@ -3,6 +3,7 @@ const path = require('path');
 
 module.exports = {
 	base: '/dc-api-core/',
+	dest: path.resolve(__dirname, '../../.deploy/dc-api-core'),
 	head: [
 		['link', { rel: 'shortcut icon', href: '/favicon.ico' }]
 	],
